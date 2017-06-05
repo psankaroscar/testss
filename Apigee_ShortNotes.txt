@@ -1,0 +1,311 @@
+How to get or set variables in request in javascript extension policy?
+ -- context.getVariable() , context.setVariable().
+
+Key Value Maps wont expire , Cache has expiration.
+
+For NoTarget  , The flow will continue with any post flow policies it wont throw any error.
+
+callbackURL is used in Authorization Grant type
+
+HyperMedia is all about Relations and links.
+
+401 code is to specify UnAuthorized error not Forbidden.
+
+PUT is for create & Update.
+
+OPTIONS is not used for CRUD Operations.
+
+In Basic Authentication username and password are base64 encoded.
+
+Comments has no limitations on length in ThreatProtection policies.
+
+When will we use MessageWeight in SpikeArrest.
+
+To Integrate with third party services we will use ServiceCallout Policy.
+
+AccessControl Policy is for Filtering the incoming requests based on IP.
+
+SOAP Messages are validated through MessageValidation Policy.
+
+Password Grant Type is used for Trusted apps.
+
+Data Masking works in Tracing , wont work for messageLogging.
+
+MessageLogging Policy : In cloud it will log in SystemLog Server.
+
+Hierarchy in BAAS :
+-- Organization --> Apps -->  Collections --> Entity
+
+Retrive Assets in BAAS
+-- ?type=Asset
+
+We can Push Notifications to Devices,Users,UserGroups.
+
+Pagination Syntax:
+-- ?Limit=10&cursor = ABCDEF
+
+Query language syntax
+-- ?ql= status='Active'
+
+Proper restAPI URL
+-- PUT /Users/{userID}/addresses/{addressID}
+
+Entity relationship can be created using POST and PUT. Syntax for creating entity relationship.
+--  firstcollection / Entity / (Relationship) / SecCollection / Entity
+
+Node.js apps on Apigeeedge runs inside Trireme.
+
+Types of healthcheckup. 
+-- TCP / HTTP
+
+Default Algorithm for Loadbalancer is RoundRobin.
+-- Other Algorthms are Weighted,LeastConnections
+
+We need not zip the node.js app when deployed in Edge and will automatically have the following project structure.
+
+---apiproxy 
+     ...
+     ..
+     Resources
+     Node
+       api.js
+
+package.JSON is config file in NOde.js apps.
+
+Node.js port will not be used in APIGEE Edge. (when deployed).
+
+Volos has following Modules to support node.js apps.
+ -- OAuth , Quota , Cache , Analytics
+ 
+config.JSON has all the environmental details.
+
+<IgnoreUnresolvedVariables> --false will raise a Fault when it finds an unknown variable names.
+
+Response Cache can be used at both request and response end.
+
+HttptargetConnection timeout parameters;
+ --- io.timeout.millis , Connection.timeout.millis
+ 
+Fault Rules are executed from Bottom to Top.
+
+If two Target conditions are matching in RouteRules only first target will be executed.
+
+DefaultFaultRule executes only if every Fault Rule fails ( depends on the flow it was placed ).
+
+Swagger2.0 is the recommendation by APIGEE.
+
+Swagger uses YAML specification.
+
+AssignMessage + ExtractVariables + ServiceCallout is best combination for mashup when using external services.
+
+Default Endpoint for OAuth in APIGEE.
+-- /accesstoken ,  /Refresh-accesstoken
+
+BAAS Supports ClientCredentials and Password Grant Types only.
+
+which Grant Type doesnot have Refreshtoken
+-- ClientCredentials
+
+JSON.Stringify -- to Convert to string from JSON.
+
+Lookout for steps involved in reading soap messages and converting XML to JSON in the process.
+
+Message.Content refers to request or response payload.
+
+Out of box policies are best options for fast processing than extension polcies like javascript , java , regular expression policies.
+
+Success Codes on Target Endpoint-- to catch an error code as success add 4XX or 5XX in Success.Codes.
+
+No: of Entities in BAAS are configurable.
+
+How to retrieve Second Object from JSON
+--- $item[1]  ... JSON is zero based.
+
+ConcurrentRatePolicy is used to restrict no of concurrent connections to targetserver.
+
+Prefix Variables are nor visible in Trace utility.(Extract Variables Policy)
+
+Use javascript , java , python for proxy processing at server side.
+
+Best Configuration to reduce the faults , set 
+ -- Distirbuted to true and synchronous to true 
+ 
+For performance set synchronous to false.
+
+In Quota , SpikeArrest and other traffic related policies COUNT is configured in which policy.
+
+Few questions around modifying where will you modify TargetURL.
+
+Where is SSO Configured?
+===================================================================
+Another set may be some of the above questions are repetitive.
+
+****************************General**************************
+
+1. HTTP Verbs which is not used Trace/Patch
+
+2. swagger #ref, definitions/<definitions>
+
+
+3. where can you store your credentials
+
+harcode policy
+ref
+file system
+ldap
+
+
+
+
+*************************ProxyEndPoint***************************
+
+4. if no route rule matches what happens - defaultfault rule
+
+5. when no targets are specified- what is it used for mock service
+
+6. protocols used in message 
+
+FTP, HTTP, TCP
+
+7. logging can be configured only postMessageFlow
+
+
+8. health monitor....TCP(ping), HTTP ( response)
+
+9.load balancing default algo- round robin, weighted, least collections
+
+10.FaultRules
+error1, error2,
+
+
+
+
+11.Product, API, Organizations
+
+12. role based access
+which feature does restrict a group of api's based on roles:
+
+
+
+
+************************BAAS*********************
+
+13. out of box policies - geolocation, push notifcations, no sql data store
+geolocation
+
+
+14.BAAS properties default- type, UUID, name(optional) unique
+
+
+15. "name" :"s"
+""displayName":"Soumya"
+
+
+16.v1/s
+v1?ql=displayName="soumya"
+
+
+----------------------------------------
+
+17. v1/product/_/_
+
+
+
+18.proxy.matchesSuffix v1/product
+v1/product/**
+
+
+19.resource item- collections bag of items
+
+URI Matches
+
+
+******************************Security*************************
+20. 3 legged oauth authorization  code- steps
+21. scopes in oauth
+
+22. Wher can SSO be configured?
+23. virtual host
+24. target server
+
+25. base64- authorization code can be used only once
+
+
+26. refresh tokens - access tokens uses
+
+
+********************Caching *********************
+27.cache scope - exclusive , organization,encironment
+
+28.cache size in KB setmax KB  ( if size in KB Limit)
+
+************************Lifecycle Mgmt************************
+
+29.pom.xml  options overridden zero downtime deployment
+
+
+30.How to make secure connections
+-keystore, trustore
+-HTPS
+-SSL
+
+
+******************Policies:********************
+
+31. Tags in XMLToJSOn
+32.recognizenumber, recognizeboolean xmljson, jsonexml
+availableprefix
+
+33. SpikeArrest, Quota
+34. <distributed> false - Message processor
+35. Spike Arrest - questions
+
+
+36. Javscript CallOut?
+37. what happens ?
+if var palo= httpClient("URL")
+
+
+
+38. xmltojson- how do you do?
+
+-extractvariables
+-xpath, jsonpath,
+-xslt transformation, xpath, jsonpath
+
+
+39. two services needs to exhchange data what set of polices will be used
+40. mashups - assignmessage, extract, service call out
+
+
+41. message weight is configured for spike arrest
+
+42. which scenarios the spike arest will raise a fault
+
+
+43. Concurrent rate policy- outbound connection
+
+44. modify target URL - javascript 
+
+45. Soap messages are validated by messagevalidation policy
+
+46. AccessControl control
+
+
+
+**********************Node.js***************
+47. how do connect from node.js to BAAS
+48. volos.oauth.limit
+volos.rateLimits.limit
+
+49. Node.js deployment
+
+50. how to configure Node.js applications 
+	restrict os level variables
+
+51. node.js is zipped
+
+
+-------------------------Overall Topics:--------------------
+
+caching, quota, node.js, oauth, baas, SAML
